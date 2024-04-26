@@ -1,9 +1,9 @@
 import { cn } from "@/lib/utils";
 import React from "react";
 
-export default function ShopBanner({ classname }) {
+export default function ShopBanner({ className }) {
   return (
-    <section className={cn(classname)}>
+    <section className={cn(className)}>
       <div className="relative w-full h-[200px]">
         <div className="size-full bg-stone-200"></div>
         <div className="rounded-full size-32 bg-stone-400 absolute top-full left-1/2 -translate-x-1/2 -translate-y-1/2 border border"></div>
