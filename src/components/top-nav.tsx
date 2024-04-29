@@ -1,9 +1,10 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { Menu, ShoppingBag } from "lucide-react";
 import { SheetTrigger } from "./ui/sheet";
 import { usePathname } from "next/navigation";
+import Link from "next/link";
 
 export default function TopNav() {
   const pathname = usePathname();
@@ -22,9 +23,12 @@ export default function TopNav() {
       </SheetTrigger>
       <div className="flex items-center gap-3 ml-auto">
         {pathname.includes("/admin") ? (
-          <Button size={"sm"} variant={"outline"}>
+          <Link
+            href="/shitshop"
+            className={buttonVariants({ variant: "outline", size: "sm" })}
+          >
             Switch to buyer
-          </Button>
+          </Link>
         ) : (
           <Button size={"sm"} variant={"ghost"}>
             <ShoppingBag size={20} className="text-stone-600" />

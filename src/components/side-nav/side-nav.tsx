@@ -1,6 +1,6 @@
 "use client";
 
-import { Paintbrush2, Plus, ShoppingBag, Store } from "lucide-react";
+import { Paintbrush2, Plus, Settings, ShoppingBag, Store } from "lucide-react";
 import { usePathname } from "next/navigation";
 import SideNavSelections from "./side-nav-selections";
 import {
@@ -16,6 +16,7 @@ import {
 import { ReactNode } from "react";
 
 // todo: dynamic imports
+// todo: add defaults path ex. my-items to "/"
 const AdminLists: List[] = [
   {
     title: "Add new item",
@@ -43,13 +44,18 @@ const AdminLists: List[] = [
 const buyerLists: List[] = [
   {
     title: "Home",
-    path: "/",
+    path: "/items",
     icon: Store,
   },
   {
     title: "Orders",
     path: "/orders",
     icon: ShoppingBag,
+  },
+  {
+    title: "Settings",
+    path: "/settings",
+    icon: Settings,
   },
 ];
 
@@ -78,9 +84,9 @@ export function SideNavContent() {
     <>
       <h1 className="font-bold mb-12 ml-4 text-xl">KaStore</h1>
       {pathname.includes("/admin") ? (
-        <SideNavSelections lists={AdminLists} />
+        <SideNavSelections lists={AdminLists} type="admin" />
       ) : (
-        <SideNavSelections lists={buyerLists} />
+        <SideNavSelections lists={buyerLists} type="user" />
       )}
     </>
   );

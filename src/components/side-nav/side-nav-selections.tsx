@@ -4,7 +4,10 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { SheetClose, SheetTrigger } from "../ui/sheet";
 
-export default function SideNavSelections({ lists }: SideNavSelectionsProps) {
+export default function SideNavSelections({
+  lists,
+  type,
+}: SideNavSelectionsProps) {
   const pathname = usePathname();
   console.log({ pathname });
   return (
@@ -18,7 +21,11 @@ export default function SideNavSelections({ lists }: SideNavSelectionsProps) {
           <SheetClose asChild>
             <Link
               key={path}
-              href={`/shitshop/admin/${path}`}
+              href={
+                type === "admin"
+                  ? `/shitshop/admin/${path}`
+                  : `/shitshop/${path}`
+              }
               className={cn(
                 buttonVariants({
                   variant: isPathMatch ? "default" : "ghost",

@@ -1,7 +1,7 @@
-import ShopBanner from "./shop-banner";
-import ShopCategories from "./shop-categories/shop-categories";
-import ShopItems from "./shop-items/shop-items";
-import ShopSearch from "./shop-search";
+import ShopBanner from "../shop-banner";
+import ShopCategories from "../shop-categories/shop-categories";
+import ShopItems from "../shop-items/shop-items";
+import ShopSearch from "../shop-search";
 
 export default function page() {
   return (
