@@ -8,4 +8,6 @@ type List = {
 type SideNavSelectionsProps = {
   lists: List[];
   type: "admin" | "user";
+  className?: string;
+  title?: string;
 };

@@ -1,6 +1,15 @@
 "use client";
 
-import { Paintbrush2, Plus, Settings, ShoppingBag, Store } from "lucide-react";
+import {
+  Footprints,
+  Glasses,
+  Paintbrush2,
+  Plus,
+  Settings,
+  Shirt,
+  ShoppingBag,
+  Store,
+} from "lucide-react";
 import { usePathname } from "next/navigation";
 import SideNavSelections from "./side-nav-selections";
 import {
@@ -59,6 +68,25 @@ const buyerLists: List[] = [
   },
 ];
 
+const categories = [
+  {
+    title: "Streetwares",
+    path: "/streetware",
+    icon: Shirt,
+  },
+  {
+    title: "Shoes",
+    path: "/shoes",
+    icon: Footprints,
+  },
+  {
+    title: "Accessories",
+    path: "/accessories",
+    icon: Glasses,
+  },
+];
+
+// todo: convert to laout & move to /client /folder, to avoid using 'use client'
 export default function SideNav() {
   return (
     <>
@@ -86,7 +114,14 @@ export function SideNavContent() {
       {pathname.includes("/admin") ? (
         <SideNavSelections lists={AdminLists} type="admin" />
       ) : (
-        <SideNavSelections lists={buyerLists} type="user" />
+        <>
+          <SideNavSelections lists={buyerLists} type="user" className="mb-8" />
+          <SideNavSelections
+            lists={categories}
+            type="user"
+            title="Categories"
+          />
+        </>
       )}
     </>
   );
