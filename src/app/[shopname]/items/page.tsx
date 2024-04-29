@@ -8,7 +8,7 @@ export default function page() {
     <>
       <ShopBanner classname="mb-16" />
       <ShopSearch classname="mb-12" />
-      <ShopCategories className="mb-4" />
+      {/* <ShopCategories className="mb-4" /> */}
       <ShopItems />
     </>
   );
