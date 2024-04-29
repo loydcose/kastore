@@ -3,6 +3,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import TopNav from "@/components/top-nav";
 import Footer from "@/components/footer";
+import SideNav from "@/components/side-nav/side-nav";
+import { cn } from "@/lib/utils";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,10 +20,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <TopNav />
-        <main className="mx-auto max-w-7xl w-11/12">{children}</main>
-        <Footer />
+      <body className={cn(inter.className, "flex items-start gap-4")}>
+        <SideNav />
+        <div className="w-full">
+          <TopNav />
+          <main className="mx-auto max-w-7xl w-11/12">{children}</main>
+          <Footer />
+        </div>
       </body>
     </html>
   );
